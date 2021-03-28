@@ -1,0 +1,106 @@
+a > i {
+    font-size: 2rem;
+    color: #333a45 ;
+}
+
+a:hover i {
+    color: var(--main-color);
+    transition: 0.5s;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+
+.board-colors {
+    position: relative;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 10px;
+    transition: 0.5s;
+    z-index: 3;
+    animation: fadeIn 0.2s;
+    width: max-content;
+}
+
+.list-colors {
+    height: 400px;
+    width: 700px;
+    background-color: #333a45;
+    border-radius: 0.25rem;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color); 
+    border-radius: 10px;
+  }
+
+.list-colors > h1 {
+    color: var(--main-color);
+    padding-top: 5px;
+    text-align: center;
+    border-bottom: 1px solid ;
+    font-weight: 500;
+}
+
+.color-item {
+    background-color: #333a45;
+    transition: 0.2s;
+    max-width: 100%;
+}
+
+option {
+    color: #6f7887;
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+.layout {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.75);
+    left: 0;
+    top: 0;
+    z-index: 2;
+    animation: fadeIn 0.2s;
+}
+
+.custom-icon {
+    display: flex;
+    font-size: 1rem;
+    color: var(--icon-color);
+}
+
+.custom-icon > p:hover{
+    color: var(--main-color);
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

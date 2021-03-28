@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/root.css">
+  <link rel="stylesheet" href="/css/boardColor.css">
+  <link rel="stylesheet" href="/css/form.css">
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+<body class="grid wide">
+  <!-- NAV BAR -->
+  <nav>
+    <div class="header row">
+      <div class="header-container col ">
+        <h1 class="logo">TyperRank</h1>
+
+        <div class="header-items">
+          <div class="header-links">
+            <i class="fas fa-stopwatch clock"></i>
+            <i class="fas fa-trophy"></i>
+            <i class="fas fa-cog"></i>
+            <i class="fas fa-user user-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- MAIN BODY -->
+
+  <div class="main-body">
+    <!-- Word Input -->
+
+    <div class="timer" id="timer"></div>
+    <div class="container hide">
+      <div class="words-display" id="words-display"></div>
+      <textarea id="words-input" class="words-input" placeholder="Click and start typing, good luck !"
+        autofocus></textarea>
+    </div>
+
+    <!--  -->
+
+
+
+
+    <!-- Form Validation -->
+
+    <div class="main-form row">
+      <form action="" method="POST" class="form" id="form-1">
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="fullname" class="form-label">Register</label>
+          <input id="fullname" name="fullname" type="text" placeholder="Username" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label"></label>
+          <input id="email" name="email" type="text" placeholder="Enter email" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label"></label>
+          <input id="password" name="password" type="password" placeholder="Enter password" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password_confirmation" class="form-label"></label>
+          <input id="password_confirmation" name="password_confirmation" placeholder="Verifying password"
+            type="password" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit">Sign up</button>
+      </form>
+
+      <form action="" method="POST" class="form" id="form-2">
+        <h3 class="heading">Login</h3>
+
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="email" class="form-label"></label>
+          <input id="email" name="email" type="text" placeholder="Enter your Email" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label"></label>
+          <input id="password" name="password" type="password" placeholder="Enter your Password" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit">Sign in</button>
+      </form>
+
+    </div>
+
+
+
+    <!-- BOARD COLOR -->
+
+    <div class="board-colors-container row">
+      <!-- Layout -->
+      <div class="layout"></div>
+
+      <!-- Board Color -->
+      <div class="board-colors grid">
+        <div class="list-colors">
+          <div class="color-item">
+            <option value="#EC8989">Sea Pink</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#3666EC">Royal Blue</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#93CCEA">Cornflower</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#FFBF00">Amber</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#714693">Affair</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#262FE8">Persian Blue</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#848B90">Oslo Gray</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#F4DE1F">Ripe Lemon</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#4FFCEE">Aquamarine</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#EBFC4F">Canary</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#E83226">Alizarin Crimson</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#5FA777">Aqua Forest</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#FF6FFF">Blush Pink</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#FFF1B5">Buttermilk</option>
+          </div>
+
+
+          <div class="color-item">
+            <option value="#00CC99">Caribbean Green</option>
+          </div>
+
+          <div class="color-item">
+            <option value="#C41E3A">Cardinal</option>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INFO CARDS -->
+
+    <!-- <div class="info-container grid wide">
+      <div class="list-info row">
+        <div class="col l-4 info-cards">
+          <div class="img-container" id="dai-info">
+            <img src="/img/dai.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="col l-4 info-cards">
+          <div class="img-container" id="an-info">
+            <img src="/img/an.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="col l-4 info-cards">
+          <div class="img-container" id="kien-info">
+            <img src="/img/kien.jpg" alt="">
+          </div>
+        </div>
+
+      </div>
+
+    </div> -->
+
+
+  </div>
+
+
+
+  <!-- FOOTER -->
+
+  <footer class="grid wide">
+    <div class="footer-right-side">
+      <i class="fas fa-paint-brush custom-icon">
+        <p class="customize">Customize</p>
+      </i>
+
+      <a href="/html/creators.html"><i class="fas fa-info info-icon"></i></a>
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      Validator({
+        form: '#form-1',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+          Validator.isRequired('#fullname', 'Please enter your Fullname'),
+          Validator.isEmail('#email'),
+          Validator.minLength('#password', 6),
+          Validator.isRequired('#password_confirmation'),
+          Validator.isConfirmed('#password_confirmation', function () {
+            return document.querySelector('#form-1 #password').value;
+          })
+        ],
+        onSubmit: function (data) {
+          console.log(data);
+        }
+      });
+
+
+      Validator({
+        form: '#form-2',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+          Validator.isEmail('#email'),
+          Validator.minLength('#password', 6),
+        ],
+        onSubmit: function (data) {
+          // Call API
+          console.log(data);
+        }
+      });
+    });
+
+  </script>
+  <script src="/js/script.js"></script>
+  <script src="/js/creators.js"></script>
+  <script src="/js/boardColor.js"></script>
+  <script src="/js/form.js"></script>
+</body>
+
+</html>
