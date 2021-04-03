@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
   <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/grid.css">
   <link rel="stylesheet" href="/css/root.css">
   <link rel="stylesheet" href="/css/boardColor.css">
   <link rel="stylesheet" href="/css/form.css">
@@ -20,28 +21,123 @@
   <nav>
     <div class="header row">
       <div class="header-container col ">
-        <h1 class="logo">TyperRank</h1>
+        <h1 class="logo hide-on-mobile">TyperRank</h1>
 
-        <div class="header-items">
+        <div class="header-items hide-on-mobile">
           <div class="header-links">
             <i class="fas fa-stopwatch clock"></i>
             <i class="fas fa-trophy"></i>
-            <i class="fas fa-cog"></i>
             <i class="fas fa-user user-icon"></i>
+            </i>
           </div>
         </div>
+
+        <!-- Mobile -->
+        <div class="bars-icon hide-on-pc hide-on-tablet"><i class="fas fa-bars"></i></div>
+
       </div>
+
+    </div>
     </div>
   </nav>
+
+  <div class="list-icons hide-on-pc hide-on-tablet">
+    <div class="close-icon"><i class="fas fa-times"></i></div>
+    <span><i class="fas fa-stopwatch mobile-clock-icon"></i></span>
+    <span><i class="fas fa-trophy"></i></span>
+    <span><i class="fas fa-user mobile-user-icon"></i></span>
+    <span><i class="fas fa-paint-brush mobile-custom-icon"></i></span>
+  </div>
+
+
+  <!-- Board Color -->
+
+  <div class="mobile-board-colors-container">
+
+    <div class="mobile-board-colors hide-on-pc hide-on-tablet">
+      <div class="list-colors">
+        <div class="board-color-close-icon"><i class="fas fa-times"></i></div>
+
+        <div class="color-item">
+          <option value="#EC8989">Sea Pink</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#3666EC">Royal Blue</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#93CCEA">Cornflower</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#FFBF00">Amber</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#714693">Affair</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#262FE8">Persian Blue</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#848B90">Oslo Gray</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#F4DE1F">Ripe Lemon</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#4FFCEE">Aquamarine</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#EBFC4F">Canary</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#E83226">Alizarin Crimson</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#5FA777">Aqua Forest</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#FF6FFF">Blush Pink</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#FFF1B5">Buttermilk</option>
+        </div>
+
+
+        <div class="color-item">
+          <option value="#00CC99">Caribbean Green</option>
+        </div>
+
+        <div class="color-item">
+          <option value="#C41E3A">Cardinal</option>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
 
 
   <!-- MAIN BODY -->
 
   <div class="main-body">
+
     <!-- Word Input -->
 
     <div class="timer" id="timer"></div>
-    <div class="container hide">
+    <div class="container">
       <div class="words-display" id="words-display"></div>
       <textarea id="words-input" class="words-input" placeholder="Click and start typing, good luck !"
         autofocus></textarea>
@@ -85,6 +181,7 @@
 
         <button class="form-submit">Sign up</button>
       </form>
+      <!-- onclick="event.preventDefault()" -->
 
       <form action="" method="POST" class="form" id="form-2">
         <h3 class="heading">Login</h3>
@@ -108,6 +205,9 @@
 
     </div>
 
+    <div class="resignMessage">
+      <button>Resign Successfully !</button>
+    </div>
 
 
     <!-- BOARD COLOR -->
@@ -189,33 +289,6 @@
 
     </div>
 
-    <!-- INFO CARDS -->
-
-    <!-- <div class="info-container grid wide">
-      <div class="list-info row">
-        <div class="col l-4 info-cards">
-          <div class="img-container" id="dai-info">
-            <img src="/img/dai.jpg" alt="">
-          </div>
-        </div>
-
-        <div class="col l-4 info-cards">
-          <div class="img-container" id="an-info">
-            <img src="/img/an.jpg" alt="">
-          </div>
-        </div>
-
-        <div class="col l-4 info-cards">
-          <div class="img-container" id="kien-info">
-            <img src="/img/kien.jpg" alt="">
-          </div>
-        </div>
-
-      </div>
-
-    </div> -->
-
-
   </div>
 
 
@@ -225,7 +298,7 @@
   <footer class="grid wide">
     <div class="footer-right-side">
       <i class="fas fa-paint-brush custom-icon">
-        <p class="customize">Customize</p>
+        <p class="customize">Customise</p>
       </i>
 
       <a href="/html/creators.html"><i class="fas fa-info info-icon"></i></a>
@@ -237,7 +310,7 @@
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
-      Validator({
+        Validator({
         form: '#form-1',
         formGroupSelector: '.form-group',
         errorSelector: '.form-message',
@@ -250,11 +323,20 @@
             return document.querySelector('#form-1 #password').value;
           })
         ],
-        onSubmit: function (data) {
-          console.log(data);
+        onSubmit: function (dataResign) {
+          console.log(dataResign);
+
+          // Show TypingBoard after submit
+
+          // typingBoard.style.display = 'block'
+          // for (var b = 0; b < forms.length; b++) {
+          //   forms[b].style.display = 'none'
+          // }
+
+          window.localStorage.setItem('userDataResign', JSON.stringify(dataResign));
+          
         }
       });
-
 
       Validator({
         form: '#form-2',
@@ -264,12 +346,29 @@
           Validator.isEmail('#email'),
           Validator.minLength('#password', 6),
         ],
-        onSubmit: function (data) {
+        onSubmit: function (dataLogin) {
           // Call API
-          console.log(data);
+          console.log(dataLogin);
+
+          window.localStorage.setItem('userDataLogin', JSON.stringify(dataLogin));
         }
       });
     });
+
+    // localStorage.clear()
+    
+    // var submitBtn = document.querySelector('.submitAnchor')
+    // var resignMessage = document.querySelector('.resignMessage')
+
+    // var userDataResign = localStorage.getItem('userDataResign')
+    // var userDataResign_Email = JSON.parse(userDataResign).email
+
+    // var userDataLogin = localStorage.getItem('userDataLogin')
+    // var userDataLogin_Email = JSON.parse(userDataLogin).email
+
+
+
+
 
   </script>
   <script src="/js/script.js"></script>

@@ -48,14 +48,6 @@ body {
 ::-webkit-scrollbar-thumb {
     background: var(--main-color); 
     border-radius: 10px;
-  }
-
-.list-colors > h1 {
-    color: var(--main-color);
-    padding-top: 5px;
-    text-align: center;
-    border-bottom: 1px solid ;
-    font-weight: 500;
 }
 
 .color-item {

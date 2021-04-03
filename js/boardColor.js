@@ -1,5 +1,5 @@
 // Choose color
-var optionElements = document.querySelectorAll('option')
+var optionElements = document.querySelectorAll('.board-colors option')
 var colorElements = document.querySelectorAll('.color-item')
 var logo = document.querySelector('.logo')
 var icons = document.querySelectorAll('i')
@@ -8,7 +8,9 @@ let root = document.documentElement
 // show boardElement
 var custom = document.querySelector('.customize')
 var boardColor = document.querySelector('.board-colors')
+var listIcons = document.querySelector('.list-icons > span > i')
 var layout = document.querySelector('.layout')
+
 
 
 for (var i = 0; i < optionElements.length; i++) {
@@ -25,8 +27,11 @@ for (var i = 0; i < optionElements.length; i++) {
         }
         logo.style.setProperty('color', colorValues)
         logo.style.setProperty('transition', '0.5s')
+        
+        // Mobile
+        barsIcon.style.setProperty('color', colorValues)
+        barsIcon.style.setProperty('transition', '0.5s')
 
-        document.body.style.scrollbarTrackColor= 'red'
     }
 
     optionElements[i].onmouseout = function (e) {
@@ -50,14 +55,15 @@ for (var i = 0; i < optionElements.length; i++) {
 
 // Show BoardColors
 
-custom.onclick = function (e) {
+custom.onclick = function () {
     boardColor.style.display = 'flex'
     layout.style.display = 'block'
 }
 
 // Show Layout
 
-layout.onclick = function (e) {
+layout.onclick = function () {
     layout.style.display = 'none'
     boardColor.style.display = 'none'
 }
+
