@@ -10,6 +10,7 @@ var custom = document.querySelector('.customize')
 var boardColor = document.querySelector('.board-colors')
 var listIcons = document.querySelector('.list-icons > span > i')
 var layout = document.querySelector('.layout')
+var layoutNotice = document.querySelector('.layout-notice')
 
 
 

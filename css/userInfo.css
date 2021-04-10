@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.user-info-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: 0.5s;
+}
+
+.titlte {
+    margin-top: 20px;
+    display: flex;
+}
+
+.user-info-container > h1 {
+    color: var(--main-color);
+}
+
+.user-back-icon-container {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+}
+
+.user-back-icon {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.2);
+}
+
+.user-back-icon:hover {
+    color: var(--main-color);
+    transition: 0.5s;
+}
+
+.user-info-container > .avatar {
+    border-radius: 100px;
+    background-color: red;
+
+}
+
+.avatar > img {
+    border-radius: 50%;
+    object-fit:fill;
+    width: 200px;
+    height: 200px;
+}
+
+.list-user-info {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.list-user-info > label {
+    margin: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.list-user-info > input {
+    /* margin-top: 10px; */
+    height: 50px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: none;
+}
+

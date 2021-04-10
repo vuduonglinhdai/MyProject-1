@@ -1,16 +1,27 @@
 var userIcon = document.querySelector('.user-icon')
-var mobileUserIcon = document.querySelector('.mobile-user-icon')
 var clockIcon = document.querySelector('.clock')
+var logOutIcon = document.querySelector('.logOut-icon')
+var mobileLogOutIcon = document.querySelector('.mobileLogOut-icon')
 var typingBoard = document.querySelector('.container')
 var layout = document.querySelector('.layout')
 var forms = document.querySelectorAll('.form')
 
+// User Info
+var userBackIcon = document.querySelector('.user-back-icon')
+var userInfoContainer = document.querySelector('.user-info-container')
+var userInfoIcon = document.querySelector('.user-info-icon')
+var userName = document.querySelector('.user-name')
+var userEmail = document.querySelector('.user-email')
+var userAge = document.querySelector('.user-age')
+var userGender = document.querySelector('.user-gender')
+
 // MOBILE 
 var mobileUserIcon = document.querySelector('.mobile-user-icon')
+var mobileUserInfoIcon = document.querySelector('.mobile-user-info-icon')
 var barsIcon = document.querySelector('.bars-icon > i')
 var listIconsContainer = document.querySelector('.list-icons')
 var closeIcon = document.querySelector('.close-icon')
-var boardColorCloseIcon = document.querySelector('.board-color-close-icon')
+var boardColorCloseIcon = document.querySelector('.board-color-close-icon > i')
 var mobileClockIcon = document.querySelector('.mobile-clock-icon')
 var mobileBoardColor = document.querySelector('.mobile-board-colors')
 var customIcon = document.querySelector('.mobile-custom-icon')
@@ -97,7 +108,104 @@ for (var i = 0; i < mobileOptionElements.length; i++) {
     }
 
     mobileOptionElements[i].onclick = function (e) {
-        root.style.setProperty('--main-color', e.target.value)            
+        root.style.setProperty('--main-color', e.target.value)
         mobileBoardColor.style.left = '-5000px'
     }
 }
+
+// LogOut PC
+logOutIcon.onclick = function () {
+    for (var b = 0; b < forms.length; b++) {
+        forms[b].style.display = 'block'
+    }
+    typingBoard.style.display = 'none'
+
+    logOutIcon.classList.add('hide')
+    userIcon.classList.remove('hide')
+    userInfoIcon.classList.add('hide')
+}
+
+
+// LogOut Mobile
+
+mobileLogOutIcon.onclick = function () {
+    for (var b = 0; b < forms.length; b++) {
+        forms[b].style.display = 'block'
+    }
+    typingBoard.style.display = 'none'
+
+    mobileUserIcon.classList.remove('hide')
+    mobileUserInfoIcon.classList.add('hide')
+    mobileLogOutIcon.classList.add('hide')
+    listIconsContainer.style.left = '-5000px'
+}
+
+
+// Show UserInfo
+userInfoIcon.onclick = function () {
+    document.querySelector('nav').classList.add('hide')
+    document.querySelector('.main-body').classList.add('hide')
+    document.querySelector('footer').classList.add('hide')
+    userInfoContainer.classList.remove('hide')
+
+    document.querySelector('nav').style.transition = '0.5s'
+    document.querySelector('.main-body').style.transition = '0.5s'
+    document.querySelector('footer').style.transition = '0.5s'
+
+
+}
+
+// Hide UserInfo 
+userBackIcon.onclick = function () {
+    document.querySelector('nav').classList.remove('hide')
+    document.querySelector('.main-body').classList.remove('hide')
+    document.querySelector('footer').classList.remove('hide')
+    userInfoContainer.classList.add('hide')
+}
+
+// Show UserInfo on Mobile
+
+mobileUserInfoIcon.onclick = function () {
+    listIconsContainer.style.left = '-5000px'
+    typingBoard.style.display = 'none'
+    for (var b = 0; b < forms.length; b++) {
+        forms[b].style.display = 'none'
+    }
+    userInfoContainer.classList.remove('hide')
+    
+}
+
+// Set User Infomation
+var userDataRegist = JSON.parse(localStorage.getItem('userDataRegist'))
+var userDataLogin = JSON.parse(localStorage.getItem('userDataLogin'))
+
+userName.value = userDataRegist.fullname
+userEmail.value = userDataRegist.email
+
+userAge.oninput = function (e) {
+    localStorage.setItem('userAge', e.target.value)
+}
+
+userAge.value = localStorage.getItem('userAge')
+
+userGender.oninput = function (e) {
+    localStorage.setItem('userGender', e.target.value)
+}
+
+userGender.value = localStorage.getItem('userGender')
+
+var timeout;
+document.onmousemove = function () {
+    clearTimeout(timeout);
+    timeout = setInterval(function () {
+        layoutNotice.style.display = 'block'
+    }, 25000);
+}
+
+document.onclick = function () {
+    layoutNotice.style.display = 'none'
+}
+
+document.onkeypress = function () {
+    layoutNotice.style.display = 'none'
+}   

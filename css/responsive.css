@@ -4,6 +4,10 @@
     .hide-on-pc {
         display: none;
     }
+    
+    .list-colors {
+        height: 400px;
+    }
 }
 
 
@@ -84,6 +88,7 @@
         transition: 0.2s;
     }
 
+
     .list-icons > span > i:hover {
         color: var(--main-color);
     }
@@ -111,7 +116,13 @@
         overflow: hidden;
     }
 
+    .list-colors {
+        width: 100%;
+        height: inherit;
+    }
+
     .board-color-close-icon {
+        width: fit-content;
         height: 40px;
         font-size: 2.3rem;
         font-weight: 700;

@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="/css/boardColor.css">
   <link rel="stylesheet" href="/css/form.css">
   <link rel="stylesheet" href="/css/typing.css">
+  <link rel="stylesheet" href="/css/userInfo.css">
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="grid wide">
@@ -21,14 +27,15 @@
   <nav>
     <div class="header row">
       <div class="header-container col ">
-        <h1 class="logo hide-on-mobile">TyperRank</h1>
+        <h1 class=" hide-on-mobile"><a href="" class="logo">TyperRank</a></h1>
 
         <div class="header-items hide-on-mobile">
           <div class="header-links">
             <i class="fas fa-stopwatch clock"></i>
-            <i class="fas fa-trophy"></i>
+            <i class="fas fa-address-card user-info-icon hide"></i>
+            <i class="fas fa-trophy trophy-icon"></i>
             <i class="fas fa-user user-icon"></i>
-            </i>
+            <i class="fas fa-sign-out-alt logOut-icon hide"></i>
           </div>
         </div>
 
@@ -45,12 +52,14 @@
     <div class="close-icon"><i class="fas fa-times"></i></div>
     <span><i class="fas fa-stopwatch mobile-clock-icon"></i></span>
     <span><i class="fas fa-trophy"></i></span>
-    <span><i class="fas fa-user mobile-user-icon"></i></span>
+    <span><i class="fas fa-user mobile-user-icon "></i></span>
+    <span><i class="fas fa-address-card mobile-user-info-icon"></i></span>
     <span><i class="fas fa-paint-brush mobile-custom-icon"></i></span>
+    <span><i class="fas fa-sign-out-alt mobileLogOut-icon hide"></i></span>
   </div>
 
 
-  <!-- Board Color -->
+  <!-- Mobile Board Color -->
 
   <div class="mobile-board-colors-container">
 
@@ -146,8 +155,6 @@
     <!--  -->
 
 
-
-
     <!-- Form Validation -->
 
     <div class="main-form row">
@@ -181,7 +188,6 @@
 
         <button class="form-submit">Sign up</button>
       </form>
-      <!-- onclick="event.preventDefault()" -->
 
       <form action="" method="POST" class="form" id="form-2">
         <h3 class="heading">Login</h3>
@@ -205,16 +211,17 @@
 
     </div>
 
-    <div class="resignMessage">
-      <button>Resign Successfully !</button>
-    </div>
-
 
     <!-- BOARD COLOR -->
 
     <div class="board-colors-container row">
       <!-- Layout -->
-      <div class="layout"></div>
+      <div class="layout">
+      </div>
+
+      <div class="layout-notice">
+        <p>Click to start!</p>
+      </div>
 
       <!-- Board Color -->
       <div class="board-colors grid">
@@ -307,10 +314,39 @@
   </footer>
 
 
+  <div class="user-info-container grid wide hide">
+    <div class="titlte">
+      <h1>Your Info</h1>
+      <span class="user-back-icon-container"><i class="fas fa-arrow-circle-left user-back-icon"></i></span>
+    </div>
+
+    <div class="user-info">
+      <div class="avatar">
+        <img src="/img/hacker.jpg" alt="avatar">
+      </div>
+
+      <div class="list-user-info">
+        <label for="name">Name</label>
+        <input type="text" class="user-name" value="" id="name" name="name" disabled>
+
+        <label for="age">Age</label>
+        <input type="number" class="user-age" value="" id="age" name="age" placeholder="Your Age">
+
+        <label for="email">Email</label>
+        <input type="text" class="user-email" value="" id="email" name="email" disabled>
+
+        <label for="ender">Gender</label>
+        <input type="text" class="user-gender" value="" id="gender" name="gender" placeholder="Your Gender ?">
+
+      </div>
+    </div>
+  </div>
+
+
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
-        Validator({
+      Validator({
         form: '#form-1',
         formGroupSelector: '.form-group',
         errorSelector: '.form-message',
@@ -323,20 +359,32 @@
             return document.querySelector('#form-1 #password').value;
           })
         ],
-        onSubmit: function (dataResign) {
-          console.log(dataResign);
+        onSubmit: function (dataRegist) {
+          console.log(dataRegist);
 
           // Show TypingBoard after submit
 
-          // typingBoard.style.display = 'block'
-          // for (var b = 0; b < forms.length; b++) {
-          //   forms[b].style.display = 'none'
-          // }
+          typingBoard.style.display = 'block'
+          for (var b = 0; b < forms.length; b++) {
+            forms[b].style.display = 'none'
+          }
 
-          window.localStorage.setItem('userDataResign', JSON.stringify(dataResign));
-          
+          // LogIn PC 
+          userIcon.classList.add('hide')
+          logOutIcon.classList.remove('hide')
+          userInfoIcon.classList.remove('hide')
+          mobileUserInfoIcon.classList.remove('hide')
+
+          // LogIn Mobile 
+          mobileUserIcon.classList.add('hide')
+          mobileLogOutIcon.classList.remove('hide')
+
+          window.localStorage.setItem('userDataRegist', JSON.stringify(dataRegist));
+
         }
       });
+
+
 
       Validator({
         form: '#form-2',
@@ -354,19 +402,6 @@
         }
       });
     });
-
-    // localStorage.clear()
-    
-    // var submitBtn = document.querySelector('.submitAnchor')
-    // var resignMessage = document.querySelector('.resignMessage')
-
-    // var userDataResign = localStorage.getItem('userDataResign')
-    // var userDataResign_Email = JSON.parse(userDataResign).email
-
-    // var userDataLogin = localStorage.getItem('userDataLogin')
-    // var userDataLogin_Email = JSON.parse(userDataLogin).email
-
-
 
 
 

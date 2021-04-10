@@ -177,10 +177,5 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
     }
 }
 
-var userDataResign = localStorage.getItem('userDataResign')
-var userDataResign_Email = JSON.parse(userDataResign).email
-
-var userDataLogin = localStorage.getItem('userDataLogin')
-var userDataLogin_Email = JSON.parse(userDataLogin).email
 
 
