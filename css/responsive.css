@@ -131,7 +131,7 @@
 
     .board-color-close-icon > i {
         position: absolute;
-        top: 20px;
+        top: 8px;
         right: 30px;    
     }
 
@@ -144,16 +144,9 @@
         position: absolute;
         bottom: 0;
         top: 0;
-        /* height: 1000px; */
         left: 0;
         right: 0;
-    }
-
-    /* FORMS */
-
-    .forms {
-        
-    }
+    }   
 
 
     /* Cards */

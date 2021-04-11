@@ -167,32 +167,15 @@ userBackIcon.onclick = function () {
 
 mobileUserInfoIcon.onclick = function () {
     listIconsContainer.style.left = '-5000px'
-    typingBoard.style.display = 'none'
-    for (var b = 0; b < forms.length; b++) {
-        forms[b].style.display = 'none'
-    }
     userInfoContainer.classList.remove('hide')
-    
+
+    document.querySelector('nav').classList.add('hide')
+    document.querySelector('.main-body').classList.add('hide')
+    document.querySelector('footer').classList.add('hide')
+    userInfoContainer.classList.remove('hide')
+
 }
 
-// Set User Infomation
-var userDataRegist = JSON.parse(localStorage.getItem('userDataRegist'))
-var userDataLogin = JSON.parse(localStorage.getItem('userDataLogin'))
-
-userName.value = userDataRegist.fullname
-userEmail.value = userDataRegist.email
-
-userAge.oninput = function (e) {
-    localStorage.setItem('userAge', e.target.value)
-}
-
-userAge.value = localStorage.getItem('userAge')
-
-userGender.oninput = function (e) {
-    localStorage.setItem('userGender', e.target.value)
-}
-
-userGender.value = localStorage.getItem('userGender')
 
 var timeout;
 document.onmousemove = function () {
@@ -209,3 +192,4 @@ document.onclick = function () {
 document.onkeypress = function () {
     layoutNotice.style.display = 'none'
 }   
+

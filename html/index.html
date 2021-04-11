@@ -53,7 +53,7 @@
     <span><i class="fas fa-stopwatch mobile-clock-icon"></i></span>
     <span><i class="fas fa-trophy"></i></span>
     <span><i class="fas fa-user mobile-user-icon "></i></span>
-    <span><i class="fas fa-address-card mobile-user-info-icon"></i></span>
+    <span><i class="fas fa-address-card mobile-user-info-icon hide"></i></span>
     <span><i class="fas fa-paint-brush mobile-custom-icon"></i></span>
     <span><i class="fas fa-sign-out-alt mobileLogOut-icon hide"></i></span>
   </div>
@@ -380,6 +380,26 @@
           mobileLogOutIcon.classList.remove('hide')
 
           window.localStorage.setItem('userDataRegist', JSON.stringify(dataRegist));
+
+          
+          // Save to UserInfo Page
+          var userDataRegist = JSON.parse(localStorage.getItem('userDataRegist'))
+          var userDataLogin = JSON.parse(localStorage.getItem('userDataLogin'))
+
+          userName.value = userDataRegist.fullname
+          userEmail.value = userDataRegist.email
+
+          userAge.oninput = function (e) {
+            localStorage.setItem('userAge', e.target.value)
+          }
+
+          userAge.value = localStorage.getItem('userAge')
+
+          userGender.oninput = function (e) {
+            localStorage.setItem('userGender', e.target.value)
+          }
+
+          userGender.value = localStorage.getItem('userGender')
 
         }
       });
